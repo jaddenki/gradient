@@ -179,7 +179,7 @@
     <div class="section" data-section>
       <button class="section-head"><span>Displacement</span><span class="chev"></span></button>
       <div class="section-body">
-        <div class="toggle-row"><span class="label">On</span><label class="switch"><input type="checkbox" id="dispOn"></label></div>
+        <div class="toggle-row"><span class="label">On</span><label class="switch"><input type="checkbox" id="dispOn" checked></label></div>
         <div class="field">
           <input type="file" id="dispFile" accept="image/*" class="grow">
         </div>
@@ -270,7 +270,7 @@
     falloff: 2.5,
     blur: { on: false, radius: 8 },
     distortion: { on: false, ampX: 20, ampY: 20, freqX: 1.5, freqY: 1.5 },
-    disp: { on: false, strengthX: 40, strengthY: 40 },
+    disp: { on: true, strengthX: 40, strengthY: 40 },
     colorama: { on: true, stops: [
       { t: 0.43, color: '#0a0033' },
       { t: 0.53, color: '#5cdd1e' },
@@ -296,12 +296,19 @@
 
   function initGrid(cols, rows) {
     state.points = [];
+    const jx = 0.45 / (cols - 1);
+    const jy = 0.45 / (rows - 1);
     for (let j = 0; j < rows; j++) {
       for (let i = 0; i < cols; i++) {
+        let x = i/(cols-1), y = j/(rows-1);
+        const edgeX = (i === 0 || i === cols-1);
+        const edgeY = (j === 0 || j === rows-1);
+        if (!edgeX) x += (Math.random()*2 - 1) * jx;
+        if (!edgeY) y += (Math.random()*2 - 1) * jy;
         state.points.push({
-          x: i/(cols-1),
-          y: j/(rows-1),
-          color: hslToHex((i*73 + j*131) % 360, 70, 55),
+          x: Math.max(0, Math.min(1, x)),
+          y: Math.max(0, Math.min(1, y)),
+          color: hslToHex(Math.random()*360, 50+Math.random()*40, 35+Math.random()*40),
         });
       }
     }
@@ -747,6 +754,19 @@
   // ---------- init ----------
   initGrid(4, 4);
   renderRamp();
+
+  (function loadDefaultDisp() {
+    const img = new Image();
+    img.onload = () => {
+      dispImg = img;
+      const thumb = document.getElementById('dispThumb');
+      if (thumb) thumb.src = img.src;
+      scheduleRender();
+    };
+    img.onerror = () => scheduleRender();
+    img.src = 'displacement-default.png';
+  })();
+
   scheduleRender();
 
   pixelFill(document.getElementById('exportBtn'));
