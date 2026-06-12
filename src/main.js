@@ -9,7 +9,7 @@ import { initExport } from './export.js';
 import { pixelFill } from './ui/pixel-fill.js';
 import { DEFAULT_DISPLACEMENT_URL } from './displacement-default.js';
 
-const DEFAULT_COLS = 4;
+const DEFAULT_COLS = 2;
 const DEFAULT_ROWS = 4;
 
 function loadDefaultDisplacement() {
