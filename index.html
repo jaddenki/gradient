@@ -67,7 +67,9 @@
     outline: none; min-width: 0; color-scheme: dark;
   }
   select:focus-visible, input:focus-visible { border-color: #e4e4e7; }
-  input[type=number] { width: 84px; }
+  input[type=number] { width: 64px; text-align: center; -moz-appearance: textfield; appearance: textfield; }
+  input[type=number]::-webkit-outer-spin-button,
+  input[type=number]::-webkit-inner-spin-button { -webkit-appearance: none; appearance: none; margin: 0; }
   input[type=file] { font-family: var(--sans); }
   input[type=color] { background: transparent; border: 1px solid var(--border-dark); width: 28px; height: 22px; padding: 0; cursor: pointer; }
   input[type=checkbox] { accent-color: var(--volt); width: 14px; height: 14px; }
@@ -100,6 +102,7 @@
     *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
   }
 </style>
+<script src="displacement-default.js"></script>
 </head>
 <body>
 <div class="app">
@@ -764,7 +767,7 @@
       scheduleRender();
     };
     img.onerror = () => scheduleRender();
-    img.src = 'displacement-default.png';
+    img.src = window.__DEFAULT_DISP_DATA_URL || 'displacement-default.png';
   })();
 
   scheduleRender();
