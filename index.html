@@ -35,7 +35,7 @@
   .title { font-size: 18px; font-weight: 600; letter-spacing: 0.02em; }
   .meta { font-family: var(--mono); font-size: 12px; color: var(--text-subtle); letter-spacing: 0.04em; text-transform: uppercase; }
   .stage-wrap { flex: 1; overflow: hidden; }
-  .stage { position: relative; width: 100%; height: calc(100vh - 56px); }
+  .stage { position: relative; width: 100%; height: 100vh; }
   .stage canvas { display: block; position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
   #output { z-index: 1; }
   #interaction { z-index: 2; cursor: crosshair; }
@@ -64,10 +64,10 @@
   select, input[type=number], input[type=text], input[type=file] {
     background: transparent; color: #e4e4e7; border: 1px solid var(--border-dark);
     padding: 6px 8px; font-family: var(--mono); font-size: 12px; border-radius: 0;
-    outline: none; min-width: 0;
+    outline: none; min-width: 0; color-scheme: dark;
   }
   select:focus-visible, input:focus-visible { border-color: #e4e4e7; }
-  input[type=number] { width: 70px; }
+  input[type=number] { width: 84px; }
   input[type=file] { font-family: var(--sans); }
   input[type=color] { background: transparent; border: 1px solid var(--border-dark); width: 28px; height: 22px; padding: 0; cursor: pointer; }
   input[type=checkbox] { accent-color: var(--volt); width: 14px; height: 14px; }
