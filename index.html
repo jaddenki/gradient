@@ -155,7 +155,7 @@
     <div class="section" data-section>
       <button class="section-head"><span>Distortion</span><span class="chev"></span></button>
       <div class="section-body">
-        <div class="toggle-row"><span class="label">On</span><label class="switch"><input type="checkbox" id="distOn"></label></div>
+        <div class="toggle-row"><span class="label">On</span><label class="switch"><input type="checkbox" id="distOn" checked></label></div>
         <div class="field">
           <label>X amp</label>
           <input type="range" id="distAmpX" min="0" max="120" value="20">
@@ -272,7 +272,7 @@
     points: [],
     falloff: 2.5,
     blur: { on: false, radius: 8 },
-    distortion: { on: false, ampX: 20, ampY: 20, freqX: 1.5, freqY: 1.5 },
+    distortion: { on: true, ampX: 20, ampY: 20, freqX: 1.5, freqY: 1.5 },
     disp: { on: true, strengthX: 40, strengthY: 40 },
     colorama: { on: true, stops: [
       { t: 0.43, color: '#0a0033' },
