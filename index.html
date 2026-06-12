@@ -200,7 +200,7 @@
     <div class="section" data-section>
       <button class="section-head"><span>Colorama</span><span class="chev"></span></button>
       <div class="section-body">
-        <div class="toggle-row"><span class="label">On</span><label class="switch"><input type="checkbox" id="coloramaOn"></label></div>
+        <div class="toggle-row"><span class="label">On</span><label class="switch"><input type="checkbox" id="coloramaOn" checked></label></div>
         <div id="ramp"></div>
         <button id="addStop">Add stop</button>
       </div>
@@ -209,11 +209,11 @@
     <div class="section" data-section>
       <button class="section-head"><span>Noise</span><span class="chev"></span></button>
       <div class="section-body">
-        <div class="toggle-row"><span class="label">On</span><label class="switch"><input type="checkbox" id="noiseOn"></label></div>
+        <div class="toggle-row"><span class="label">On</span><label class="switch"><input type="checkbox" id="noiseOn" checked></label></div>
         <div class="field">
           <label>Amount</label>
-          <input type="range" id="noiseIntensity" min="0" max="100" value="30">
-          <span class="val" id="noiseIntensityVal">30</span>
+          <input type="range" id="noiseIntensity" min="0" max="100" value="13">
+          <span class="val" id="noiseIntensityVal">13</span>
         </div>
         <div class="field">
           <label>Mode</label>
@@ -271,12 +271,12 @@
     blur: { on: false, radius: 8 },
     distortion: { on: false, ampX: 20, ampY: 20, freqX: 1.5, freqY: 1.5 },
     disp: { on: false, strengthX: 40, strengthY: 40 },
-    colorama: { on: false, stops: [
-      { t: 0,   color: '#0a0033' },
-      { t: 0.5, color: '#d24c8a' },
-      { t: 1,   color: '#fff3c4' },
+    colorama: { on: true, stops: [
+      { t: 0.43, color: '#0a0033' },
+      { t: 0.53, color: '#5cdd1e' },
+      { t: 0.68, color: '#f0f5a8' },
     ]},
-    noise: { on: false, intensity: 30, blend: 'overlay', seed: Math.floor(Math.random()*1e9) },
+    noise: { on: true, intensity: 13, blend: 'overlay', seed: Math.floor(Math.random()*1e9) },
   };
 
   let dispImg = null; // HTMLImageElement once loaded
